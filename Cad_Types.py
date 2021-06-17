@@ -1,14 +1,15 @@
 import PySimpleGUI as sg
+from config import *
 import arq_control
 
 def cad_types (user,meio,jan):
     sg.theme('DarkAmber')   
 
     layout = [ 
-                [sg.Text('Cadastro de novo Tipo',font=('Times Roman',30),pad=(0,(20,20)))],              
-                [sg.Text('', key="incNAME", visible=True, size=(21,1), pad=(5,(10,0)), text_color='red',font=('Times Roman',11))],
-                [sg.Text('Nome:',pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="nome", size=(35,4),pad=(5,(0,0)),font=('Times Roman',12))],        
-                [sg.Button('Cadastrar',pad=(30,50),font=('Times Roman',15)), sg.Button('Cancelar',pad=(20,50),font=('Times Roman',15))]
+                [sg.Text('Cadastro de novo Tipo',font=(fonte,30),pad=(0,(20,20)))],              
+                [sg.Text('', key="incNAME", visible=True, size=(21,1), pad=(5,(10,0)), text_color='red',font=(fonte,11))],
+                [sg.Text('Nome:',pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="nome", size=(35,4),pad=(5,(0,0)),font=(fonte,12))],        
+                [sg.Button('Cadastrar',pad=(30,50),font=(fonte,15)), sg.Button('Cancelar',pad=(20,50),font=(fonte,15))]
                 
             ]
 

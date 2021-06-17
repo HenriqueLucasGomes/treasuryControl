@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import img 
 import cadastro
 import arq_control
@@ -13,11 +14,11 @@ def tela_principal (user):
     sg.theme('DarkAmber')   # Add a touch of color
 
     layout = [ 
-                [sg.Text('Tela Principal',font=('Times Roman',30),pad=(0,(50,0)))],
-                [sg.Text('Por favor Selecione uma Ação.',font=('Times Roman',25), pad=(0,(0,50)))],                                                
-                [sg.Button('Entradas', pad=(30,50), font=('Times Roman',20)), 
-                 sg.Button('Saídas',pad=(20,50), font=('Times Roman',20)), 
-                 sg.Button('Consultas',pad=(20,50),font=('Times Roman',20))],
+                [sg.Text('Tela Principal',font=(fonte,30),pad=(0,(50,0)))],
+                [sg.Text('Por favor Selecione uma Ação.',font=(fonte,25), pad=(0,(0,50)))],                                                
+                [sg.Button('Entradas', pad=(30,50), font=(fonte,20)), 
+                 sg.Button('Saídas',pad=(20,50), font=(fonte,20)), 
+                 sg.Button('Consultas',pad=(20,50),font=(fonte,20))],
                 [sg.Image(data=img.img_1,pad=((0,0),(60,0)))]
             ]
 

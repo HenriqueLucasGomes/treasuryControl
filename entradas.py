@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import img 
 import cadastro
 import arq_control
@@ -14,22 +15,22 @@ def entrada (user):
     tipos=arq_control.getTypesENTRADA(user.getId())
 
     layout = [ 
-                [sg.Text('Registro de Entrada',font=('Times Roman',30),pad=(0,(50,50)))],
+                [sg.Text('Registro de Entrada',font=(fonte,30),pad=(0,(50,50)))],
                 
-                [sg.Text('', key="incVALOR", visible=True, size=(20,1), pad=((80,0),(10,0)), text_color='red',font=('Times Roman',11)),
-                 sg.Text('', key="incDATA", visible=True, size=(20,1), pad=((50,0),(10,0)), text_color='red',font=('Times Roman',11))],
+                [sg.Text('', key="incVALOR", visible=True, size=(20,1), pad=((80,0),(10,0)), text_color='red',font=(fonte,11)),
+                 sg.Text('', key="incDATA", visible=True, size=(20,1), pad=((50,0),(10,0)), text_color='red',font=(fonte,11))],
                 
-                [sg.Text('Valor:', pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="valor", size=(35,1),pad=(5,(0,0)),font=('Times Roman',12)),
-                 sg.Text('Data:', pad=((5,5),(0,0)),font=('Times Roman',20)), sg.InputText(key="calendario", visible=False, size=(10,1),pad=(5,(0,0)),font=('Times Roman',12)), 
+                [sg.Text('Valor:', pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="valor", size=(35,1),pad=(5,(0,0)),font=(fonte,12)),
+                 sg.Text('Data:', pad=((5,5),(0,0)),font=(fonte,20)), sg.InputText(key="calendario", visible=False, size=(10,1),pad=(5,(0,0)),font=(fonte,12)), 
                  sg.CalendarButton('', button_color=('black','gray'), image_filename='lupa.png', format = "%d/%m/%y")],
                 
-                [sg.Text('', key="incNOME", visible=True, size=(20,1), pad=((250,0),(10,0)), text_color='red',font=('Times Roman',11)),
-                 sg.Text('', key="incTIPO", visible=True, size=(20,1), pad=((20,0),(10,0)), text_color='red',font=('Times Roman',11))],
+                [sg.Text('', key="incNOME", visible=True, size=(20,1), pad=((250,0),(10,0)), text_color='red',font=(fonte,11)),
+                 sg.Text('', key="incTIPO", visible=True, size=(20,1), pad=((20,0),(10,0)), text_color='red',font=(fonte,11))],
                 
-                [sg.Text('Nome/Alcunha:',font=('Times Roman',20)), sg.InputText(key="nome",size=(35,1),font=('Times Roman',12)),
-                 sg.Text('Tipo:',font=('Times Roman',20)), sg.Combo(tipos,  key='tipos',size=(15,1), font=('Times Roman',15))], #sg.Listbox(tipos,  key='tipos',size=(15,1), font=('Times Roman',15))],
+                [sg.Text('Nome/Alcunha:',font=(fonte,20)), sg.InputText(key="nome",size=(35,1),font=(fonte,12)),
+                 sg.Text('Tipo:',font=(fonte,20)), sg.Combo(tipos,  key='tipos',size=(15,1), font=(fonte,15))], #sg.Listbox(tipos,  key='tipos',size=(15,1), font=(fonte,15))],
                 
-                [sg.Button('Registrar', pad=(30,50),font=('Times Roman',15)), sg.Button('Voltar', pad=(30,50),font=('Times Roman',15))],
+                [sg.Button('Registrar', pad=(30,50),font=(fonte,15)), sg.Button('Voltar', pad=(30,50),font=(fonte,15))],
                 [sg.Image(data=img.img_1,pad=((0,0),(60,0)))]
             ]
 

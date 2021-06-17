@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import img 
 import cadastro
 import arq_control
@@ -9,13 +10,13 @@ def Login ():
     sg.theme('DarkAmber')   # Add a touch of color
 
     layout = [ 
-                [sg.Text('Bem Vindo ao Assintente de Tesouraria!',font=('Times Roman',30),pad=(0,(50,0)))],
-                [sg.Text('Por favor realize seu Login ou Cadastro.',font=('Times Roman',30), pad=(0,(0,50)))],
-                [sg.Text('Usuário Incorreto', key="incUSER", visible=True, size=(20,1),  text_color='red',font=('Times Roman',11))],
-                [sg.Text('Login:', key="logins", pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="usuario", size=(35,1),pad=(5,(0,0)),font=('Times Roman',12))],
-                [sg.Text('Senha Incorreta', key="incSENHA", visible=True, size=(20,1), pad=(0,(10,0)), text_color='red',font=('Times Roman',11))],
-                [sg.Text('Senha:',font=('Times Roman',20)), sg.InputText(key="senha",size=(35,1),password_char="*",font=('Times Roman',12))],
-                [sg.Button('Entrar', pad=(30,50),font=('Times Roman',15)), sg.Button('Cadastrar-se',pad=(20,50),font=('Times Roman',15))],
+                [sg.Text('Bem Vindo ao Assintente de Tesouraria!',font=(fonte,30),pad=(0,(50,0)))],
+                [sg.Text('Por favor realize seu Login ou Cadastro.',font=(fonte,30), pad=(0,(0,50)))],
+                [sg.Text('Usuário Incorreto', key="incUSER", visible=True, size=(20,1),  text_color='red',font=(fonte,11))],
+                [sg.Text('Login:', key="logins", pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="usuario", size=(35,1),pad=(5,(0,0)),font=(fonte,12))],
+                [sg.Text('Senha Incorreta', key="incSENHA", visible=True, size=(20,1), pad=(0,(10,0)), text_color='red',font=(fonte,11))],
+                [sg.Text('Senha:',font=(fonte,20)), sg.InputText(key="senha",size=(35,1),password_char="*",font=(fonte,12))],
+                [sg.Button('Entrar', pad=(30,50),font=(fonte,15)), sg.Button('Cadastrar-se',pad=(20,50),font=(fonte,15))],
                 [sg.Image(data=img.img_1,pad=((0,0),(60,0)))]
             ]
 

@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import arq_control
 import logging
 
@@ -6,12 +7,12 @@ def cadrastrar (log):
     sg.theme('DarkAmber')   
 
     layout = [ 
-                [sg.Text('Usuário Já Existe', key="exsUSER", visible=True, size=(21,1), pad=(5,(30,0)), text_color='red',font=('Times Roman',11))],
-                [sg.Text('Login:',pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="usuario", size=(35,4),pad=(5,(0,0)),font=('Times Roman',12))],
-                [sg.Text('Senha:',font=('Times Roman',20)), sg.InputText(key="senha",size=(35,4),password_char="*",font=('Times Roman',12))],
-                [sg.Text('Senhas Incompatíveis', key="icpSENHA", visible=True, size=(27,1),  justification='r', text_color='red',font=('Times Roman',11))],
-                [sg.Text('Repetir:',font=('Times Roman',20)), sg.InputText(key="rep_senha",size=(31,4),password_char="*",font=('Times Roman',12))],
-                [sg.Button('Cadastrar',pad=(30,50),font=('Times Roman',15)), sg.Button('Cancelar',pad=(20,50),font=('Times Roman',15))]
+                [sg.Text('Usuário Já Existe', key="exsUSER", visible=True, size=(21,1), pad=(5,(30,0)), text_color='red',font=(fonte,11))],
+                [sg.Text('Login:',pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="usuario", size=(35,4),pad=(5,(0,0)),font=(fonte,12))],
+                [sg.Text('Senha:',font=(fonte,20)), sg.InputText(key="senha",size=(35,4),password_char="*",font=(fonte,12))],
+                [sg.Text('Senhas Incompatíveis', key="icpSENHA", visible=True, size=(27,1),  justification='r', text_color='red',font=(fonte,11))],
+                [sg.Text('Repetir:',font=(fonte,20)), sg.InputText(key="rep_senha",size=(31,4),password_char="*",font=(fonte,12))],
+                [sg.Button('Cadastrar',pad=(30,50),font=(fonte,15)), sg.Button('Cancelar',pad=(20,50),font=(fonte,15))]
                 
             ]
 

@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import img 
 import cadastro
 import arq_control
@@ -20,15 +21,15 @@ def con_saida (user):
         
 
     layout = [ 
-                [sg.Text('Saídas',font=('Times Roman',30),pad=(0,(20,0)))],                                
-                [sg.Button('Voltar', pad=(10,(30,20)),font=('Times Roman',15)), 
-                 sg.Button('Buscar',pad=(10,(30,20)),font=('Times Roman',15)),
-                 sg.Button('Filtros',pad=(10,(30,20)),font=('Times Roman',15)),
-                 sg.Button('Preferências',pad=(10,(30,20)),font=('Times Roman',15))],
-                [sg.Listbox(busca, text_color='red', key='LISTA', pad=(0,(0,0)), size=(100,19), font=('Times Roman',15))],
-                [sg.Button(image_filename='seta_ESQ.png', visible=False, pad=(0,(0,0)),font=('Times Roman',15)),
-                 sg.Text('1/2',font=('Times Roman',10), visible=False,),
-                 sg.Button(image_filename='seta_DIR.png', visible=False,pad=(0,(0,0)),font=('Times Roman',15))],
+                [sg.Text('Saídas',font=(fonte,30),pad=(0,(20,0)))],                                
+                [sg.Button('Voltar', pad=(10,(30,20)),font=(fonte,15)), 
+                 sg.Button('Buscar',pad=(10,(30,20)),font=(fonte,15)),
+                 sg.Button('Filtros',pad=(10,(30,20)),font=(fonte,15)),
+                 sg.Button('Preferências',pad=(10,(30,20)),font=(fonte,15))],
+                [sg.Listbox(busca, text_color='red', key='LISTA', pad=(0,(0,0)), size=(100,19), font=(fonte,15))],
+                [sg.Button(image_filename='seta_ESQ.png', visible=False, pad=(0,(0,0)),font=(fonte,15)),
+                 sg.Text('1/2',font=(fonte,10), visible=False,),
+                 sg.Button(image_filename='seta_DIR.png', visible=False,pad=(0,(0,0)),font=(fonte,15))],
             ]
 
 

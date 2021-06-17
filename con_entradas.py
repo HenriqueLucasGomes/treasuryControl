@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import img 
 import cadastro
 import arq_control
@@ -10,10 +11,10 @@ def con_entrada (user,filt):
     sg.theme('DarkAmber')   # Add a touch of color
 
     layout = [ 
-                [sg.Text('Saídas',font=('Times Roman',30),pad=(0,(30,0)))],
+                [sg.Text('Saídas',font=(fonte,30),pad=(0,(30,0)))],
                 
-                [sg.Button('Buscar',pad=(30,(30,20)),font=('Times Roman',15))],
-                [sg.Button('Voltar', pad=(10,0),font=('Times Roman',15)), sg.Button('Filtros',pad=(10,0),font=('Times Roman',15))],
+                [sg.Button('Buscar',pad=(30,(30,20)),font=(fonte,15))],
+                [sg.Button('Voltar', pad=(10,0),font=(fonte,15)), sg.Button('Filtros',pad=(10,0),font=(fonte,15))],
             ]
 
 

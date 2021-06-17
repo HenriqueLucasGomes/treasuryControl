@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from config import *
 import arq_control
 
 def filtros (user,meio,default):
@@ -12,27 +13,27 @@ def filtros (user,meio,default):
         tipos=['ERRO']
 
     layout = [ 
-                [sg.Text('Filtros',font=('Times Roman',30),pad=(0,(20,20)))],              
+                [sg.Text('Filtros',font=(fonte,30),pad=(0,(20,20)))],              
                 
-                [sg.Text('Dados Incoerentes', key="incLOG", visible=True,  pad=(0,(10,0)), text_color='red',font=('Times Roman',12))],
-                [sg.Text('Valor inválido', key="incVAL1", visible=True, size=(19,1), pad=((155,10),(10,0)), text_color='red',font=('Times Roman',11)),
-                 sg.Text('Valor inválido', key="incVAL2", visible=True, size=(21,1), pad=(0,(10,0)), text_color='red',font=('Times Roman',11))],                
+                [sg.Text('Dados Incoerentes', key="incLOG", visible=True,  pad=(0,(10,0)), text_color='red',font=(fonte,12))],
+                [sg.Text('Valor inválido', key="incVAL1", visible=True, size=(19,1), pad=((155,10),(10,0)), text_color='red',font=(fonte,11)),
+                 sg.Text('Valor inválido', key="incVAL2", visible=True, size=(21,1), pad=(0,(10,0)), text_color='red',font=(fonte,11))],                
                 
-                [sg.Text('Valor:',pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="VAL1", default_text = default['VAL1'], size=(15,4),pad=(5,(0,0)),font=('Times Roman',12)),
-                 sg.Text('até',pad=(5,(0,0)),font=('Times Roman',20)),sg.InputText(key="VAL2", default_text = default['VAL2'], size=(15,4),pad=(5,(0,0)),font=('Times Roman',12))],        
+                [sg.Text('Valor:',pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="VAL1", default_text = default['VAL1'], size=(15,4),pad=(5,(0,0)),font=(fonte,12)),
+                 sg.Text('até',pad=(5,(0,0)),font=(fonte,20)),sg.InputText(key="VAL2", default_text = default['VAL2'], size=(15,4),pad=(5,(0,0)),font=(fonte,12))],        
                 
-                [sg.Text('Data inválida', key="incDATA1", visible=True, size=(21,1), pad=((145,0),(10,0)), text_color='red',font=('Times Roman',11)),
-                 sg.Text('Data inválida', key="incDATA2", visible=True, size=(21,1), pad=(40,(10,0)), text_color='red',font=('Times Roman',11))],
+                [sg.Text('Data inválida', key="incDATA1", visible=True, size=(21,1), pad=((145,0),(10,0)), text_color='red',font=(fonte,11)),
+                 sg.Text('Data inválida', key="incDATA2", visible=True, size=(21,1), pad=(40,(10,0)), text_color='red',font=(fonte,11))],
                 
-                [sg.Text('Data:',pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="inicioDATA", visible=False, default_text = default['inicioDATA'], size=(15,4),pad=(5,(0,0)),font=('Times Roman',12)), 
+                [sg.Text('Data:',pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="inicioDATA", visible=False, default_text = default['inicioDATA'], size=(15,4),pad=(5,(0,0)),font=(fonte,12)), 
                  sg.CalendarButton('', button_color=('black','gray'), image_filename='lupa.png', format = "%d/%m/%y"),        
-                 sg.Text('até',pad=(5,(0,0)),font=('Times Roman',20)), sg.InputText(key="fimDATA", visible=False, default_text = default['fimDATA'], size=(15,4),pad=(5,(0,0)),font=('Times Roman',12)),        
+                 sg.Text('até',pad=(5,(0,0)),font=(fonte,20)), sg.InputText(key="fimDATA", visible=False, default_text = default['fimDATA'], size=(15,4),pad=(5,(0,0)),font=(fonte,12)),        
                  sg.CalendarButton('', button_color=('black','gray'), image_filename='lupa.png', format = "%d/%m/%y")],
                 
-                [sg.Text('Tipo:',font=('Times Roman',20),pad=(0,(40,0))), sg.Combo(tipos, key='tipos', pad=(0,(40,0)),size=(15,1), font=('Times Roman',15))],
-                # [sg.Listbox(tipos, pad=(0,(40,0)), default_values = default['tipos'], key='tipos',size=(15,1), font=('Times Roman',15))],
+                [sg.Text('Tipo:',font=(fonte,20),pad=(0,(40,0))), sg.Combo(tipos, key='tipos', pad=(0,(40,0)),size=(15,1), font=(fonte,15))],
+                # [sg.Listbox(tipos, pad=(0,(40,0)), default_values = default['tipos'], key='tipos',size=(15,1), font=(fonte,15))],
                 
-                [sg.Button('Filtrar',pad=(30,50),font=('Times Roman',15)), sg.Button('Cancelar',pad=(20,50),font=('Times Roman',15))]
+                [sg.Button('Filtrar',pad=(30,50),font=(fonte,15)), sg.Button('Cancelar',pad=(20,50),font=(fonte,15))]
                 
             ]
 
