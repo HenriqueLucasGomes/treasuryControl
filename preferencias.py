@@ -10,15 +10,15 @@ def prefer (user,meio,default):
     nom='3'
     
     saida=True
-    d1=['black','yellow']
-    d2=['black','yellow']
-    d3=['black','yellow']
-    v1=['black','yellow']
-    v2=['black','yellow']
-    v3=['black','yellow']
-    n1=['black','yellow']
-    n2=['black','yellow']
-    n3=['black','yellow']
+    d1=('black','yellow')
+    d2=('black','yellow')
+    d3=('black','yellow')
+    v1=('black','yellow')
+    v2=('black','yellow')
+    v3=('black','yellow')
+    n1=('black','yellow')
+    n2=('black','yellow')
+    n3=('black','yellow')
     dc=False
     dd=False
     vc=False
@@ -27,42 +27,42 @@ def prefer (user,meio,default):
     nd=False
         
     if(default['data']=='1'):
-        d2=['black','gray']
-        d3=['black','gray']
+        d2=('black','gray')
+        d3=('black','gray')
         data='1'
     elif(default['data']=='2'):
-        d1=['black','gray']
-        d3=['black','gray']
+        d1=('black','gray')
+        d3=('black','gray')
         data='2'
     elif(default['data']=='3'):
-        d2=['black','gray']
-        d1=['black','gray']
+        d2=('black','gray')
+        d1=('black','gray')
         data='3'
         
     if(default['valor']=='1'):
-        v2=['black','gray']
-        v3=['black','gray']
+        v2=('black','gray')
+        v3=('black','gray')
         valor='1'
     elif(default['valor']=='2'):
-        v1=['black','gray']
-        v3=['black','gray']
+        v1=('black','gray')
+        v3=('black','gray')
         valor='2'
     elif(default['valor']=='3'):
-        v2=['black','gray']
-        v1=['black','gray']
+        v2=('black','gray')
+        v1=('black','gray')
         valor='3'
         
     if(default['nome']=='1'):
-        n2=['black','gray']
-        n3=['black','gray']
+        n2=('black','gray')
+        n3=('black','gray')
         nom='1'
     elif(default['nome']=='2'):
-        n1=['black','gray']
-        n3=['black','gray']
+        n1=('black','gray')
+        n3=('black','gray')
         nom='2'
     elif(default['nome']=='3'):
-        n2=['black','gray']
-        n1=['black','gray']
+        n2=('black','gray')
+        n1=('black','gray')
         nom='3'
         
     if(default['dataT']=='C'):
@@ -100,7 +100,7 @@ def prefer (user,meio,default):
                  sg.Button('2°', key="D2", font=('Times Roman',12),button_color=d2),sg.Button('3°', key="D3", font=('Times Roman',12),button_color=d3,visible=saida),
                  sg.Radio('Crescente','data',default=dc),sg.Radio('Descrescente','data',default=dd)],        
                 
-                [sg.Text('Valor:',pad=((8,5),(0,0)),font=('Times Roman',20)), sg.Button('1°', key="V1", font=('Times Roman',12),button_color=v1), 
+                [sg.Text('Valor:',pad=((8,13),(0,0)),font=('Times Roman',20)), sg.Button('1°', key="V1", font=('Times Roman',12),button_color=v1), 
                  sg.Button('2°', key="V2", font=('Times Roman',12),button_color=v2),sg.Button('3°', key="V3", font=('Times Roman',12),button_color=v3,visible=saida),
                  sg.Radio('Crescente','valor',default=vc),sg.Radio('Descrescente','valor',default=vd)],        
                 
@@ -133,51 +133,51 @@ def prefer (user,meio,default):
         event, values = prefer.read()
             
         if event == 'D1':
-            prefer.Element('D1').update(button_color=['black','yellow'])
-            prefer.Element('D2').update(button_color=['black','gray'])
-            prefer.Element('D3').update(button_color=['black','gray'])
+            prefer.Element('D1').update(button_color=('black','yellow'))
+            prefer.Element('D2').update(button_color=('black','gray'))
+            prefer.Element('D3').update(button_color=('black','gray'))
             data='1'
         if event == 'D2':
-            prefer.Element('D2').update(button_color=['black','yellow'])
-            prefer.Element('D1').update(button_color=['black','gray'])
-            prefer.Element('D3').update(button_color=['black','gray'])
+            prefer.Element('D2').update(button_color=('black','yellow'))
+            prefer.Element('D1').update(button_color=('black','gray'))
+            prefer.Element('D3').update(button_color=('black','gray'))
             data='2'
         if event == 'D3':
-            prefer.Element('D3').update(button_color=['black','yellow'])
-            prefer.Element('D1').update(button_color=['black','gray'])
-            prefer.Element('D2').update(button_color=['black','gray'])
+            prefer.Element('D3').update(button_color=('black','yellow'))
+            prefer.Element('D1').update(button_color=('black','gray'))
+            prefer.Element('D2').update(button_color=('black','gray'))
             data='3'
         
         if event == 'V1':
-            prefer.Element('V1').update(button_color=['black','yellow'])
-            prefer.Element('V2').update(button_color=['black','gray'])
-            prefer.Element('V3').update(button_color=['black','gray'])
+            prefer.Element('V1').update(button_color=('black','yellow'))
+            prefer.Element('V2').update(button_color=('black','gray'))
+            prefer.Element('V3').update(button_color=('black','gray'))
             valor='1'
         if event == 'V2':
-            prefer.Element('V2').update(button_color=['black','yellow'])
-            prefer.Element('V1').update(button_color=['black','gray'])
-            prefer.Element('V3').update(button_color=['black','gray'])
+            prefer.Element('V2').update(button_color=('black','yellow'))
+            prefer.Element('V1').update(button_color=('black','gray'))
+            prefer.Element('V3').update(button_color=('black','gray'))
             valor='2'
         if event == 'V3':
-            prefer.Element('V3').update(button_color=['black','yellow'])
-            prefer.Element('V1').update(button_color=['black','gray'])
-            prefer.Element('V2').update(button_color=['black','gray'])
+            prefer.Element('V3').update(button_color=('black','yellow'))
+            prefer.Element('V1').update(button_color=('black','gray'))
+            prefer.Element('V2').update(button_color=('black','gray'))
             valor='3'
             
         if event == 'N1':
-            prefer.Element('N1').update(button_color=['black','yellow'])
-            prefer.Element('N2').update(button_color=['black','gray'])
-            prefer.Element('N3').update(button_color=['black','gray'])
+            prefer.Element('N1').update(button_color=('black','yellow'))
+            prefer.Element('N2').update(button_color=('black','gray'))
+            prefer.Element('N3').update(button_color=('black','gray'))
             nom='1'
         if event == 'N2':
-            prefer.Element('N2').update(button_color=['black','yellow'])
-            prefer.Element('N1').update(button_color=['black','gray'])
-            prefer.Element('N3').update(button_color=['black','gray'])
+            prefer.Element('N2').update(button_color=('black','yellow'))
+            prefer.Element('N1').update(button_color=('black','gray'))
+            prefer.Element('N3').update(button_color=('black','gray'))
             nom='2'
         if event == 'N3': 
-            prefer.Element('N3').update(button_color=['black','yellow'])
-            prefer.Element('N1').update(button_color=['black','gray'])
-            prefer.Element('N2').update(button_color=['black','gray'])
+            prefer.Element('N3').update(button_color=('black','yellow'))
+            prefer.Element('N1').update(button_color=('black','gray'))
+            prefer.Element('N2').update(button_color=('black','gray'))
             nom='3'
         
         
