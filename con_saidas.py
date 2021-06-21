@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 from config import *
 import img 
+import functions
 import cadastro
 import arq_control
 import tela_principal
@@ -59,10 +60,16 @@ def con_saida (user):
             con_saida.un_hide()
                 
         if event == 'Buscar':
+            s=list()
             busca=arq_control.buscaSaidas(user, filt)
+            
             if(busca==[]):
-                busca=['Nenhum registro encontrado!']
-            con_saida.Element('LISTA').update(values=busca)
+                s=['Nenhum registro encontrado!']
+            else:
+                busca=functions.ordenaBusca(prefere,busca)
+                for i in busca: s.append(i.getData())
+  
+            con_saida.Element('LISTA').update(values= s)
             # print(busca[0].getTipo(),busca[1].getTipo(),busca[2].getTipo())
         
         if event == 'Voltar':

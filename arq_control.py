@@ -9,8 +9,9 @@ def buscaSaidas(user,filtros):
     
     resultado=list()
     lis=list()
+    
     diretorio=os.listdir('db/logs/user'+str(user.getId()+1)+'/registry/saida/')
-    del(diretorio[0])
+    diretorio.remove('types.pck')
     
     #REGISTROS VAZIOS
     if(diretorio==[]):

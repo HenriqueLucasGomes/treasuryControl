@@ -1,4 +1,5 @@
 import logging
+import objetos
 
 def analiseData(data):
     try:
@@ -14,55 +15,8 @@ def analiseData(data):
         
         return False
     
-def ordenarData(lista):
-    a=list()
-    m=list()
-    d=list()
+    #------------------------------------------ ORDENANMENTO ----------------------------------------------
     
-    for i in lista:
-        a.append(i.getData()[6:8])
-        m.append(i.getData()[3:5])
-        d.append(i.getData()[:2])
-    PERDA DE REFERÊNCIA INICIAL APÓS A ORDENAÇÃO
-
-def ordenarValor():
-    pass
-
-def ordenarNome():
-    pass
-
-def ordenaBusca(info,lista):
-    if (info['data']=='1'):
-        ordenarData()
-        if (info['valor']=='2'):
-            pass
-        elif (info['nome']=='2'):
-            pass
-        else:
-            logging.warning('[>] ERRO')
-    elif (info['valor']=='1'):
-        ordenarValor()
-        if (info['data']=='2'):
-            pass
-        elif (info['nome']=='2'):
-            pass
-        else:
-            logging.warning('[>] ERRO')
-    elif (info['nome']=='1'):
-        ordenarNome()
-        if (info['data']=='2'):
-            pass
-        elif (info['valor']=='2'):
-            pass
-        else:
-            logging.warning('[>] ERRO')
-    else:
-        logging.warning('[>] ERRO')
-    
-    
-
-
-
 def quick_sort(a, ini=0, fim=None):
     fim = fim if fim is not None else len(a)
     if ini < fim:
@@ -83,6 +37,137 @@ def particao(a, ini, fim):
             a[i], a[ini - 1] = a[ini - 1], a[i]
     return ini - 1
 
-a = [8, 5, 12, 55, 3, 7, 82, 44, 35, 25, 41, 29, 17]
-print(list(reversed(a)))
-print(quick_sort(a))
+#------------------------------------------ DATA -------------------------------------------
+def ordenarData(lista,ini,fim,inv,prox):
+    
+    if(len(lista)==1):
+        return lista
+    
+    a=list()
+    # m=list()
+    # d=list()
+    r=list()
+    k=list()
+    p=list()
+    c=0
+    
+    for i in lista:
+        a.append(int(i.getData()[ini:fim]))
+        # m.append(i.getData()[3:5])
+        # d.append(i.getData()[:2])
+    
+    a=list(set(quick_sort(a)))
+    print(a)
+    
+    # if (inv=='D'):
+    #     a=list(reversed(a))
+    
+    while(c<=len(a)-1):
+        
+        for i in lista:
+            if (int(i.getData()[ini:fim])==a[c]):
+                r.append(i)
+        # print(r)
+        
+        if(ini==0 and len(r)>1):
+            if(prox['d']=='v'):
+                pass
+            if(prox['d']=='n'):
+                pass
+        else:
+            p.extend(ordenarData(r,ini-3,fim-3,inv,prox))
+        
+        x=list()
+        for i in p: x.append(i.getData())
+        print('P: '+str(x))
+        
+        r=list()
+        c+=1
+    
+    # for b in a:
+    #     for i in r:   
+    #         if (b==i):
+    #             k.append(i)
+                
+    #     p.append(ordenarData(k,ini-3,fim-3,inv))
+    
+    if (inv=='D'):
+        # print('oi')
+        p=list(reversed(p))
+    
+    x=list()
+    for i in p: x.append(i.getData())
+    print('P: '+str(x))
+    
+    return  p
+
+
+#VALOR
+def ordenarValor(lista,inv,prox):
+    
+    for i in lista:
+        a.append(int(i.getValor()))
+        # m.append(i.getData()[3:5])
+        # d.append(i.getData()[:2])
+    
+    a=list(set(quick_sort(a)))
+    print(a)
+
+#NOME
+def ordenarNome(lista,inv,prox):
+    pass
+
+#BUSCA
+def ordenaBusca(info,lista):
+    
+    #DATA
+    if (info['data']=='1'):
+        if (info['valor']=='2'):
+            if(type(lista[0])==objetos.Entrada):
+                return ordenarData(lista,6,8,info['dataT'],{'d':'v','v':'n'})
+            else:
+                return ordenarData(lista,6,8,info['dataT'],{'d':'v','v':'i'})
+        elif (info['nome']=='2'):
+            if(type(lista[0])==objetos.Entrada):
+                return ordenarData(lista,6,8,info['dataT'],{'d':'n','n':'v'})
+            else:
+                logging.warning('[>] ERRO')
+                return []
+        else:
+            logging.warning('[>] ERRO')
+            return []
+    
+    #VALOR
+    elif (info['valor']=='1'):
+        ordenarValor()
+        if (info['data']=='2'):
+            pass
+        elif (info['nome']=='2'):
+            if(type(inter[0])==objetos.Entrada):
+                inter=ordenarNome()
+        else:
+            logging.warning('[>] ERRO')
+            return []
+    
+    #NOME
+    elif (info['nome']=='1'):
+        if(type(inter[0])==objetos.Entrada):
+                inter=ordenarNome()
+        if (info['data']=='2'):
+            pass
+        elif (info['valor']=='2'):
+            pass
+        else:
+            logging.warning('[>] ERRO')
+            return []
+    
+    #ERRO
+    else:
+        logging.warning('[>] ERRO')
+        return []
+    
+    
+
+# a = [8, 5, 12, 55, 3, 7, 82, 44, 35, 25, 41, 29, 17]
+# print(list(reversed(a)))
+# print(quick_sort(a))
