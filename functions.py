@@ -47,7 +47,7 @@ def ordenarData(lista,ini,fim,inv,prox):
     # m=list()
     # d=list()
     r=list()
-    k=list()
+    # k=list()
     p=list()
     c=0
     
@@ -71,7 +71,7 @@ def ordenarData(lista,ini,fim,inv,prox):
         
         if(ini==0 and len(r)>1):
             if(prox['d']=='v'):
-                pass
+                p.extend(ordenarValor(r,inv,prox))
             if(prox['d']=='n'):
                 pass
         else:
@@ -91,7 +91,7 @@ def ordenarData(lista,ini,fim,inv,prox):
                 
     #     p.append(ordenarData(k,ini-3,fim-3,inv))
     
-    if (inv=='D'):
+    if (inv['dataT']=='D'):
         # print('oi')
         p=list(reversed(p))
     
@@ -102,34 +102,68 @@ def ordenarData(lista,ini,fim,inv,prox):
     return  p
 
 
-#VALOR
+#------------------------------------------------ VALOR -----------------------------------------------------
 def ordenarValor(lista,inv,prox):
+    
+    if(len(lista)==1):
+       return lista
+      
+    a=list()
+    p=list()
+    r=list()
+    c=0
     
     for i in lista:
         a.append(int(i.getValor()))
-        # m.append(i.getData()[3:5])
-        # d.append(i.getData()[:2])
     
     a=list(set(quick_sort(a)))
     print(a)
+    
+    while(c<=len(a)-1):
+        
+        for i in lista:
+            if (int(i.getValor())==a[c]):
+                r.append(i)
+        # print(r)
+    
+        if(len(r)>1):
+            if(prox['v']=='d'):
+                p.extend(ordenarData(r,6,8,inv,prox))
+            if(prox['v']=='n'):
+                pass
+        else:
+            p.extend(r)
+        
+        x=list()
+        for i in p: x.append(i.getValor())
+        print('P: '+str(x))
+        
+        r=list()
+        c+=1
+    
+    if (inv['valorT']=='D'):
+        # print('oi')
+        p=list(reversed(p))   
+    
+    return p
 
-#NOME
+#-------------------------------------------------- NOME ---------------------------------------------------
 def ordenarNome(lista,inv,prox):
     pass
 
-#BUSCA
+#--------------------------------------------------- BUSCA -------------------------------------------------
 def ordenaBusca(info,lista):
     
     #DATA
     if (info['data']=='1'):
         if (info['valor']=='2'):
             if(type(lista[0])==objetos.Entrada):
-                return ordenarData(lista,6,8,info['dataT'],{'d':'v','v':'n'})
+                return ordenarData(lista,6,8,info,{'d':'v','v':'n'})
             else:
-                return ordenarData(lista,6,8,info['dataT'],{'d':'v','v':'i'})
+                return ordenarData(lista,6,8,info,{'d':'v','v':'i'})
         elif (info['nome']=='2'):
             if(type(lista[0])==objetos.Entrada):
-                return ordenarData(lista,6,8,info['dataT'],{'d':'n','n':'v'})
+                return ordenarData(lista,6,8,info,{'d':'n','n':'v'})
             else:
                 logging.warning('[>] ERRO')
                 return []

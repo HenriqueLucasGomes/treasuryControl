@@ -67,7 +67,7 @@ def con_saida (user):
                 s=['Nenhum registro encontrado!']
             else:
                 busca=functions.ordenaBusca(prefere,busca)
-                for i in busca: s.append(i.getData())
+                for i in busca: s.append(str(i.getData())+"  "+str(i.getValor()))
   
             con_saida.Element('LISTA').update(values= s)
             # print(busca[0].getTipo(),busca[1].getTipo(),busca[2].getTipo())
